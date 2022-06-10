@@ -16,7 +16,7 @@ public class Empresa {
     private double costoBienesInmuebles;
     private double costoVehiculo;
     private double costoTotalBienes;
-    
+
     public void establecerNombre(String m){
         nombre = m;
     }
@@ -42,7 +42,9 @@ public class Empresa {
         }
         costoVehiculo = suma;
     }
-    
+    public void establecerCostoTotalBienes(){
+        costoTotalBienes = costoBienesInmuebles + costoVehiculo;
+    }
     
     public String obtenerNombre(){
         return nombre;
@@ -68,22 +70,31 @@ public class Empresa {
         String cadena = "";
         String cadena2 = "";
         for(int i = 0; i < obtenerEdificios().length; i++){
-            cadena = String.format("%s%d. %s - (%.2f)\n"
+            cadena = String.format("%s%d. %s (%.2f)\n"
                     ,cadena
                     ,i+1
                     ,obtenerEdificios()[i].obtenerNombre().toUpperCase()
                     ,obtenerEdificios()[i].obtenerCosto()
             );
         }
-        for(int i = 0; i <obtenerVehiculo().length;i++){
-            cadena2 = String.format(
+        for(int i = 0; i <obtenerVehiculos().length;i++){
+            cadena2 = String.format("%s%d. %s, %s (%.2f)\n"
+                    ,cadena2
+                    ,i+1
+                    ,obtenerVehiculos()[i].obtenerTipo()
+                    ,obtenerVehiculos()[i].obtenerMatricula()
+                    ,obtenerVehiculos()[i].obtenerValor()
             );
         }
         String c = String.format("%s\nLista de Edificios\n"
-                + "%sTotal de inmueble: %.2f"
+                + "%sTotal de inmueble: %.2f\n\nLista de Vehiculos\n%sTotal de "
+                + "inmuebles: %.2f\n\nTotal de bienes: %.2f\n"
                 ,obtenerNombre()
                 ,cadena
                 ,obtenerCostoBienesInmuebles()
+                ,cadena2
+                ,obtenerCostoVehiculo()
+                ,obtenerCostoTotalBienes()
         );
         return c;
     }

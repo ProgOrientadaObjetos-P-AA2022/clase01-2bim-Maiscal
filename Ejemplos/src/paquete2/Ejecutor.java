@@ -19,14 +19,26 @@ public class Ejecutor {
     public static void main(String[] args) {
         
         // Crear una arreglo de 4 elementos de tipo Edificio
+        /*********CREACION EN CLASE******************/
+//        Edificio edi1 = new Edificio("Edificio Central");
+//        edi1.establecerCostos(10000);
+//        Edificio edi2 = new Edificio("Edificio Sur");
+//        edi2.establecerCostos(20000);
+//        Edificio edi3 = new Edificio("Edificio Norte");
+//        edi3.establecerCostos(30000);
+//        Edificio edi4 = new Edificio("Edificio Secundario");
+//        edi4.establecerCostos(20000);
+
+
+        /***************CREACION EN CASA**************************/
         Edificio edi1 = new Edificio("Edificio Central");
-        edi1.establecerCostos(10000);
+        edi1.establecerCostos(20000);
         Edificio edi2 = new Edificio("Edificio Sur");
-        edi2.establecerCostos(20000);
+        edi2.establecerCostos(30000);
         Edificio edi3 = new Edificio("Edificio Norte");
-        edi3.establecerCostos(30000);
+        edi3.establecerCostos(10000);
         Edificio edi4 = new Edificio("Edificio Secundario");
-        edi4.establecerCostos(20000);
+        edi4.establecerCostos(5000);
 
         Vehiculo ve1 = new Vehiculo("Auto", "LBB0011", 10000);
         Vehiculo ve2 = new Vehiculo("Camioneta", "LCB0011", 20000);
@@ -42,6 +54,7 @@ public class Ejecutor {
         arregloE[3] = edi4;
         */
         Edificio [] arregloE = {edi1,edi2,edi3,edi4};
+        Vehiculo [] arregloV = {ve1,ve2,ve3,ve4,ve5};
         //System.out.println();
         
         // Crear un objeto de tipo Empresa:
@@ -52,8 +65,12 @@ public class Ejecutor {
         
         emp.establecerNombre("Empresa de Hojas");
         emp.establecerEdificios(arregloE);
+        emp.establecerVehiculos(arregloV);
         
         emp.establecerCostoBienesInmuebles();
+        emp.establecerCostoVehiculo();
+        emp.establecerCostoTotalBienes();
+        
         System.out.println(emp);
         
         
